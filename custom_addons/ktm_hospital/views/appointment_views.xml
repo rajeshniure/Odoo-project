@@ -1,28 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
- 
+
+    <record id="view_hospital_appointment_list" model="ir.ui.view">
+        <field name="name">hospital.appointment.list</field>
+        <field name="model">hospital.appointment</field>
+        <field name="arch" type="xml">
+            <list string="Appointment">
+                <field name="reference" />
+                <field name="patient_id" />
+                <field name="doctor_id" optional="show" />
+                <field name="appointment_date" optional="show" />
+            </list>
+        </field>
+    </record>
+
     <record id="view_hospital_appointment_form" model="ir.ui.view">
         <field name="name">hospital.appointment.form</field>
         <field name="model">hospital.appointment</field>
         <field name="arch" type="xml">
-            <form>
+            <form string="Appointment">
                 <sheet>
                     <group>
                         <group>
-                            <field name="patient_id"/>
-                            <field name="doctor_id"/>
+                            <field name="reference" readonly="True" />
+                            <field name="patient_id" />
+                            <field name="doctor_id" />
                         </group>
                         <group>
-                            <field name="appointment_date"/>
+                            <field name="appointment_date" />
+                        </group>
+                        <group string="Patient Information">
+                            <field name="patient_gender" />
+                            <field name="patient_dob" />
                         </group>
                     </group>
                     <notebook>
                         <page string="Prescription/Notes">
-                            <field name="notes"/>
+                            <field name="notes" />
                         </page>
                     </notebook>
                 </sheet>
-                <chatter/>
+                <chatter />
             </form>
         </field>
     </record>

@@ -5,10 +5,28 @@
         <field name="name">hospital.doctor.list</field>
         <field name="model">hospital.doctor</field>
         <field name="arch" type="xml">
-            <list>
+            <list string="Doctors">
                 <field name="name"/>
                 <field name="specialty"/>
             </list>
+        </field>
+    </record>
+
+    <record id="view_hospital_doctor_form" model="ir.ui.view">
+        <field name="name">hospital.doctor.form</field>
+        <field name="model">hospital.doctor</field>
+        <field name="arch" type="xml">
+            <form string="Doctor">
+                <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="specialty"/>
+                        </group>
+                        <group>
+                            <field name ="doctor_license"/>
+                        </group>
+                </sheet>
+            </form>
         </field>
     </record>
 
