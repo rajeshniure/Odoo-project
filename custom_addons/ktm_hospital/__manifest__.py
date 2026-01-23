@@ -15,6 +15,7 @@
         "views/appointment_views.xml",
         "views/doctor_views.xml",
         "views/appointment_readonly_views.xml",
+        "views/contact_move_views.xml",
         "views/menu.xml",
     ],
 }
