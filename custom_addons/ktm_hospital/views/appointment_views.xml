@@ -26,15 +26,28 @@
                     <button name="action_cancel" type="object" string="Cancel" invisible="state == 'done'" />
                     <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,ongoing,done"/>
                 </header>
-                <sheet>
+                <sheet >
                     <group>
                         <group>
                             <field name="reference" readonly="True" />
-                            <field name="patient_id" />
-                            <field name="doctor_id" />
+                            <field name="patient_id" 
+                               invisible="state == 'done'"/>
+                        
+                        <field name="patient_id" 
+                               readonly="True" 
+                               invisible="state != 'done'" 
+                               options="{'no_open': True, 'no_create': True}"/>
+
+                        <field name="doctor_id" 
+                               invisible="state == 'done'"/>
+                        
+                        <field name="doctor_id" 
+                               readonly="True" 
+                               invisible="state != 'done'" 
+                               options="{'no_open': True, 'no_create': True}"/>
                         </group>
                         <group>
-                            <field name="appointment_date" />
+                            <field name="appointment_date" readonly="state == 'done'" />
                         </group>
                         <group string="Patient Information">
                             <field name="patient_gender" />
@@ -43,7 +56,7 @@
                     </group>
                     <notebook>
                         <page string="Prescription/Notes">
-                            <field name="notes" />
+                            <field name="notes" readonly="state == 'done'" />
                         </page>
                     </notebook>
                 </sheet>

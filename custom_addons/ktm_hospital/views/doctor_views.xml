@@ -26,6 +26,7 @@
                             <field name ="doctor_license"/>
                         </group>
                 </sheet>
+                <chatter />
             </form>
         </field>
     </record>

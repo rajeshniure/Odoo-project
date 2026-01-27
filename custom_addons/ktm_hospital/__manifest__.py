@@ -5,7 +5,7 @@
     "version": "19.0.1.0",
     "application": True,
     "sequence": -1,
-    "depends":[
+    "depends":['base',
         'mail'
     ],
     "data": [

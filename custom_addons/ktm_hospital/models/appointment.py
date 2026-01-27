@@ -8,9 +8,8 @@ class HospitalAppointment(models.Model):
     _rec_name = "patient_id"
 
     reference = fields.Char(string="Reference", default="New")
-    # name = fields.Char(string='Appointment ID', required=True, copy=False, readonly=True, default=lambda self: 'New',tracking=True)
     patient_id = fields.Many2one(
-        "hospital.patient",
+        "res.partner",
         string="Patient",
         required=True,
         tracking=True,

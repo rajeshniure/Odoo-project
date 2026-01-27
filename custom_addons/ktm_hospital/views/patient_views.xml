@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <record id="view_hospital_patient_list" model="ir.ui.view">
+    <!-- <record id="view_hospital_patient_list" model="ir.ui.view">
         <field name="name">hospital.patient.list</field>
         <field name="model">hospital.patient</field>
         <field name="arch" type="xml">
@@ -24,7 +24,7 @@
                     <field name="image" widget="image" class="oe_avatar"/>
                     <div class="oe_title">
                         <h2>
-                            <field name="name"/>
+                            <field name="name" placeholder="Enter the patient name"/>
                         </h2>
                     </div>
                     <group>
@@ -83,11 +83,11 @@
             </templates>
         </kanban>
     </field>
-</record>
+</record> -->
 
     <record id="action_hospital_patient" model="ir.actions.act_window">
         <field name="name">Patients</field>
-        <field name="res_model">hospital.patient</field>
+        <field name="res_model">res.partner</field>
         <field name="view_mode">list,kanban,form</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">

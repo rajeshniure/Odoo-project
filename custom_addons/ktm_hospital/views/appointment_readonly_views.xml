@@ -21,8 +21,8 @@
                 <sheet>
                     <group>
                         <group>
-                            <field name="patient_id"/>
-                            <field name="doctor_id"/>
+                            <field name="patient_id" options="{'no_open': True, 'no_create': True}"/>
+                            <field name="doctor_id" options="{'no_open': True, 'no_create': True}"/>
                         </group>
                         <group>
                             <field name="appointment_date"/>
@@ -43,6 +43,7 @@
         <field name="name">Appointments</field>
         <field name="res_model">hospital.appointment</field>
         <field name="view_mode">list,form</field>
+        <field name="view_id" ref="view_hospital_appointment_readonly_list"/>
         <field name="view_ids" eval="[(5, 0, 0),
         (0, 0, {'view_mode': 'list', 'view_id': ref('view_hospital_appointment_readonly_list')}),
         (0, 0, {'view_mode': 'form', 'view_id': ref('view_hospital_appointment_readonly_form')})
