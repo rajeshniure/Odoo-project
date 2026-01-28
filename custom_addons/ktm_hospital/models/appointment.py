@@ -15,6 +15,10 @@ class HospitalAppointment(models.Model):
         tracking=True,
         ondelete="cascade",
     )
+    
+    doctor_id = fields.Many2one(
+        "hospital.doctor", string="Doctor", required=True, tracking=True
+    )
 
     patient_gender = fields.Selection(
         related="patient_id.gender", string="Gender", readonly=True
@@ -22,10 +26,18 @@ class HospitalAppointment(models.Model):
     patient_dob = fields.Date(
         related="patient_id.date_of_birth", string="Date of Birth", readonly=True
     )
-
-    doctor_id = fields.Many2one(
-        "hospital.doctor", string="Doctor", required=True, tracking=True
+    
+    patient_blood_group = fields.Selection(
+        related="patient_id.blood_group", string="Blood Group", readonly=True
     )
+    patient_age = fields.Char(
+        related="patient_id.age", string="Age", readonly=True
+    )
+    patient_marital_status = fields.Selection(
+        related="patient_id.marital_status", string="Marital Status", readonly=True
+    )
+
+    
     appointment_date = fields.Date(
         string="Date", default=fields.Date.context_today, tracking=True
     )
@@ -67,3 +79,7 @@ class HospitalAppointment(models.Model):
     def action_cancel(self):
         for rec in self:
             rec.state="cancelled"
+            
+            
+    def action_print_report(self):
+        return self.env.ref('ktm_hospital.action_report_hospital_appointment').report_action(self)

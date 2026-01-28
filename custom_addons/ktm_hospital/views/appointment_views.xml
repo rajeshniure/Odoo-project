@@ -20,38 +20,55 @@
         <field name="arch" type="xml">
             <form string="Appointment">
                 <header>
-                    <button name="action_confirm" type="object" string="Confirm" invisible="state != 'draft'" class="oe_highlight"/>
-                    <button name="action_ongoing" type="object" string="Ongoing" invisible="state != 'confirmed'" class="oe_highlight"/>
-                    <button name="action_done" type="object" string="Done" invisible="state != 'ongoing'" class="oe_highlight"/>
-                    <button name="action_cancel" type="object" string="Cancel" invisible="state == 'done'" />
-                    <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,ongoing,done"/>
+                    <button name="action_print_report" type="object" string="Print"
+                        class="oe_highlight" />
+                    <button name="action_confirm" type="object" string="Confirm"
+                        invisible="state != 'draft'" class="oe_highlight" />
+                    <button name="action_ongoing" type="object" string="Ongoing"
+                        invisible="state != 'confirmed'" class="oe_highlight" />
+                    <button name="action_done" type="object" string="Done"
+                        invisible="state != 'ongoing'" class="oe_highlight" />
+                    <button name="action_cancel" type="object" string="Cancel"
+                        invisible="state == 'done'" />
+                    <field name="state" widget="statusbar"
+                        statusbar_visible="draft,confirmed,ongoing,done" />
                 </header>
-                <sheet >
+                <sheet>
                     <group>
                         <group>
                             <field name="reference" readonly="True" />
-                            <field name="patient_id" 
-                               invisible="state == 'done'"/>
-                        
-                        <field name="patient_id" 
-                               readonly="True" 
-                               invisible="state != 'done'" 
-                               options="{'no_open': True, 'no_create': True}"/>
+                            <field name="patient_id"
+                                invisible="state == 'done'"
+                                options="{'no_create': True, 'no_create_edit': True}" />
 
-                        <field name="doctor_id" 
-                               invisible="state == 'done'"/>
-                        
-                        <field name="doctor_id" 
-                               readonly="True" 
-                               invisible="state != 'done'" 
-                               options="{'no_open': True, 'no_create': True}"/>
+                            <field name="patient_id"
+                                readonly="True"
+                                invisible="state != 'done'"
+                                options="{'no_open': True, 'no_create': True}" />
+
+                            <field name="doctor_id"
+                                options="{'no_create': True, 'no_create_edit': True}"
+                                invisible="state == 'done'" />
+
+                            <field name="doctor_id"
+                                readonly="True"
+                                invisible="state != 'done'"
+                                options="{'no_open': True, 'no_create': True}" />
                         </group>
                         <group>
                             <field name="appointment_date" readonly="state == 'done'" />
                         </group>
                         <group string="Patient Information">
-                            <field name="patient_gender" />
-                            <field name="patient_dob" />
+                            <group>
+                                <field name="patient_gender" />
+                                <field name="patient_dob" />
+                                <field name="patient_age" />
+                            </group>
+                            <group>
+                                <field name="patient_blood_group" />
+                                <field name="patient_marital_status" />
+                            </group>
+
                         </group>
                     </group>
                     <notebook>

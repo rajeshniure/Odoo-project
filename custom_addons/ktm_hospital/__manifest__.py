@@ -6,7 +6,8 @@
     "application": True,
     "sequence": -1,
     "depends":['base',
-        'mail'
+        'mail','contacts',
+        'account',
     ],
     "data": [
         "security/ir.model.access.csv",
@@ -17,5 +18,6 @@
         "views/appointment_readonly_views.xml",
         "views/contact_move_views.xml",
         "views/menu.xml",
+        "reports/appointment_report.xml",
     ],
 }

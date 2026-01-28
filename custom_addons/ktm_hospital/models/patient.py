@@ -7,10 +7,10 @@ class HospitalPatient(models.Model):
     _inherit = ["mail.thread", "mail.activity.mixin"]
     _description = "Patient Master"
     
-    _inherits = {'res.partner': 'partner_id'}
-    partner_id = fields.Many2one(
-        'res.partner', string='Related Partner', required=True, ondelete='cascade', tracking=True
-    )
+    # _inherits = {'res.partner': 'partner_id'}
+    # partner_id = fields.Many2one(
+    #     'res.partner', string='Related Partner', required=True, ondelete='cascade', tracking=True
+    # )
     
     # phone = fields.Char(string="Phone", tracking=True)
     # email = fields.Char(string="Email")
